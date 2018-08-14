@@ -75,7 +75,7 @@ fi
 
 if is_current "test_1" "development"
   then
-    echo "test_1 master is current"
+    echo "test_1 development is current"
 else 
     echo "Updating test_1"
     copy_test1_files
