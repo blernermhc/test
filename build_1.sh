@@ -8,7 +8,7 @@ function is_current {
   echo BRANCH = $BRANCH
   
   # Make sure both repos are on master
-  if ! $(git checkout $BRANCH)
+  if ! $(eval git checkout $BRANCH)
     then
       echo "Can't switch to $BRANCH of test repo"
       exit 1
