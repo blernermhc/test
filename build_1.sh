@@ -73,9 +73,13 @@ else
     commit_repo "test_1"
 fi
 
-#copy_changes "test_1" "master"
-#copy_changes "test_2" "master"
-#copy_changes "test_1" "development"
-#copy_changes "test_2" "development"
+if is_current "test_1" "development"
+  then
+    echo "test_1 master is current"
+else 
+    echo "Updating test_1"
+    copy_test1_files
+    commit_repo "test_1"
+fi
 
 # Delete test repo
