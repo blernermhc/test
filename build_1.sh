@@ -47,12 +47,12 @@ function copy_test1_files {
   # Copy the files we want to test_1
   cp -p file.txt ../test_1/
   cp -p file1.txt ../test_1/
-  echo $COMMIT > ../$TO_REPO/.commit
 }
 
 function commit_repo {
   # Switch to $TO_REPO repo and commit changes
   cd ../$TO_REPO
+  echo $COMMIT > .commit
   git add -A
   git commit -m "Commit"
   git push
@@ -61,11 +61,15 @@ function commit_repo {
   cd ../test
 }
 
+# Should first clone test repo
+
 if is_current "test_1" "master"
   then
     echo "test_1 master is current"
 else 
-    echo "test_1 master needs to update"
+    echo "Updating test_1"
+    copy_test1_files
+    commit_repo "test_1"
 fi
 
 #copy_changes "test_1" "master"
@@ -73,4 +77,4 @@ fi
 #copy_changes "test_1" "development"
 #copy_changes "test_2" "development"
 
-
+# Delete test repo
