@@ -51,6 +51,7 @@ function copy_test1_files {
 }
 
 function copy_test2_files {
+  git diff
   # Copy the files we want to test_2
   cp -p file.txt ../test_2/
   cp -p file2.txt ../test_2/
