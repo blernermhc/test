@@ -15,7 +15,7 @@ COMMIT_1=$(cat ../test_1/.commit)
 echo COMMIT_1 = $COMMIT_1
 
 # If they are the same we are done
-if [ $COMMIT == $COMMIT_1 ] 
+if [ "$COMMIT" == "$COMMIT_1" ] 
   then
     echo "test_1 master is current."
     exit
