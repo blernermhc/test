@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function copy_changes {
+function is_current {
   TO_REPO=$1
   BRANCH=$2
   
@@ -25,14 +25,20 @@ function copy_changes {
   if [ "$COMMIT" == "$COMMIT_1" ] 
     then
       echo "$TO_REPO $BRANCH is current."
-      exit
+      exit 0
   fi
+  
+  exit 1
+}
 
+function copy_test1_files {
   # Copy the files we want to test_1
-  cp -p file.txt ../$TO_REPO/
-  cp -p file1.txt ../$TO_REPO/
+  cp -p file.txt ../test_1/
+  cp -p file1.txt ../test_1/
   echo $COMMIT > ../$TO_REPO/.commit
+}
 
+function commit_repo {
   # Switch to $TO_REPO repo and commit changes
   cd ../$TO_REPO
   git add -A
@@ -43,9 +49,16 @@ function copy_changes {
   cd ../test
 }
 
-copy_changes "test_1" "master"
-copy_changes "test_2" "master"
-copy_changes "test_1" "development"
-copy_changes "test_2" "development"
+if is_current "test_1" "master"
+  then
+    echo "test_1 master is current"
+else 
+    echo "test_1 master needs to update"
+fi
+
+#copy_changes "test_1" "master"
+#copy_changes "test_2" "master"
+#copy_changes "test_1" "development"
+#copy_changes "test_2" "development"
 
 
