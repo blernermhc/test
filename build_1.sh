@@ -8,13 +8,13 @@ function is_current {
   echo BRANCH = $BRANCH
   
   # Make sure both repos are on master
-  if [ ! $(git checkout $BRANCH) ]
+  if ! $(git checkout $BRANCH)
     then
       echo "Can't switch to $BRANCH of test repo"
       exit 1
   fi
   cd ../$TO_REPO
-  if [ ! $(git checkout $BRANCH) ]
+  if ! $(git checkout $BRANCH)
     then
       echo "Can't switch to $BRANCH of $TO_REPO"
       exit 1
