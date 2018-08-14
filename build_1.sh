@@ -38,10 +38,10 @@ function is_current {
   if [ "$COMMIT" == "$COMMIT_1" ] 
     then
       echo "$TO_REPO $BRANCH is current."
-      exit 0
+      return 0
   fi
   
-  exit 1
+  return 1
 }
 
 function copy_test1_files {
