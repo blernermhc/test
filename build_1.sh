@@ -68,7 +68,7 @@ if is_current "test_1" "master"
   then
     echo "test_1 master is current"
 else 
-    echo "Updating test_1"
+    echo "Updating test_1 master"
     copy_test1_files
     commit_repo "test_1"
 fi
@@ -77,9 +77,27 @@ if is_current "test_1" "development"
   then
     echo "test_1 development is current"
 else 
-    echo "Updating test_1"
+    echo "Updating test_1 development"
     copy_test1_files
     commit_repo "test_1"
+fi
+
+if is_current "test_2" "master"
+  then
+    echo "test_2 master is current"
+else 
+    echo "Updating test_2 master"
+    copy_test2_files
+    commit_repo "test_2"
+fi
+
+if is_current "test_2" "development"
+  then
+    echo "test_2 development is current"
+else 
+    echo "Updating test_2 development"
+    copy_test2_files
+    commit_repo "test_2"
 fi
 
 # Delete test repo
