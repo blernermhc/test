@@ -44,5 +44,8 @@ function copy_changes {
 }
 
 copy_changes "test_1" "master"
+copy_changes "test_2" "master"
+copy_changes "test_1" "development"
+copy_changes "test_2" "development"
 
 
