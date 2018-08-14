@@ -69,6 +69,8 @@ function commit_repo {
 }
 
 # Should first clone test repo
+git clone https://github.com/blernermhc/test.git
+cd test
 
 if is_current "test_1" "master"
   then
@@ -107,3 +109,5 @@ else
 fi
 
 # Delete test repo
+cd ..
+rm -rf test
