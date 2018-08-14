@@ -50,6 +50,12 @@ function copy_test1_files {
   cp -p file1.txt ../test_1/
 }
 
+function copy_test2_files {
+  # Copy the files we want to test_2
+  cp -p file.txt ../test_2/
+  cp -p file2.txt ../test_2/
+}
+
 function commit_repo {
   # Switch to $TO_REPO repo and commit changes
   cd ../$TO_REPO
