@@ -24,6 +24,7 @@ function is_current {
       exit 1
   fi
   cd ../test
+  echo "Working directory = $(pwd)"
 
   # Get the latest commit number
   COMMIT=$(git show | head -n 1)
